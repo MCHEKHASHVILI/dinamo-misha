@@ -1,0 +1,38 @@
+html {
+  font-size: 16px;
+
+  @media screen and (max-width: 1600px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    font-size: 13px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      display: none;
+    }
+  }
+}
+
+.c-scrollbar {
+  display: none;
+}
+
+.is-nested {
+  @include media-breakpoint-up(md) {
+    padding-left: rem(122);
+  }
+}

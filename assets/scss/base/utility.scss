@@ -1,0 +1,192 @@
+//@import 'variables';
+//@import 'functions';
+//@import '../../../node_modules/bootstrap/scss/mixins';
+
+//bg and font colors
+@each $name, $color in $colors {
+  .bg-color-#{$name} {
+    background-color: $color;
+  }
+
+  .font-color-#{$name} {
+    color: $color;
+  }
+
+  .svg-fill-#{$name} {
+    fill: $color;
+  }
+
+  .svg-stroke-#{$name} {
+    stroke: $color;
+  }
+}
+
+$elements: 80;
+@for $i from 12 to $elements {
+  @if ($i % 2 == 0) {
+    .font-size-#{$i} {
+      font-size: #{rem($i)};
+
+      &-md {
+        @include media-breakpoint-down(md) {
+          font-size: #{rem($i)} !important;
+        }
+      }
+    }
+  }
+}
+
+///backgrounds
+
+@each $name in (contain, cover) {
+  .object-fit-#{$name} {
+    object-fit: $name;
+  }
+
+  .bg-#{$name} {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: $name;
+  }
+}
+
+//bg and font colors
+@each $name, $color in $colors {
+  .bg-color-#{$name} {
+    background-color: $color;
+  }
+
+  .color-#{$name} {
+    color: $color;
+  }
+
+  .svg-fill-#{$name} {
+    fill: $color;
+  }
+
+  .svg-stroke-#{$name} {
+    stroke: $color;
+  }
+}
+
+@each $size in (20, 50, 100) {
+  .w-#{$size} {
+    width: $size * 1%;
+  }
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.position-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+//
+.position-full {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@each $prop in (hidden, auto) {
+  .overflow-#{$prop} {
+    overflow: $prop;
+  }
+}
+
+//line Heights
+$lineHeights: (
+  '1': 1,
+  '1-1': 1.1,
+  '1-2': 1.2,
+  '1-3': 1.3,
+  '1-4': 1.4,
+  '1-5': 1.5,
+  '1-6': 1.6,
+  '1-7': 1.7,
+  '1-8': 1.8,
+  '1-9': 1.9,
+);
+
+@each $name, $lineHeight in $lineHeights {
+  .line-height-#{$name} {
+    line-height: $lineHeight;
+  }
+}
+
+//line Heights
+$opacities: (
+  '0': 0,
+  '0-1': 0.1,
+  '0-2': 0.2,
+  '0-3': 0.3,
+  '0-4': 0.4,
+  '0-5': 0.5,
+  '0-6': 0.6,
+  '0-7': 0.7,
+  '0-8': 0.8,
+  '0-9': 0.9,
+  '1': 1,
+);
+
+@each $name, $opacity in $opacities {
+  .opacity-#{$name} {
+    opacity: $opacity;
+  }
+}
+
+//borders
+$borderRadius: (
+  'xxs': 2px,
+  'xs': 4px,
+  's': 6px,
+  'm': 8px,
+  'l': 10px,
+  'xl': 12px,
+  'xxl': 14px,
+  '50': 50%,
+);
+
+@each $name, $borderRadius in $borderRadius {
+  .border-radius-#{$name} {
+    border-radius: $borderRadius;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.v ertical-align-middle {
+  vertical-align: middle;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-1-1-0 {
+  flex: 1 1 0;
+}
+
+.white-space-normal {
+  white-space: normal;
+}
+
+.left-offset {
+  padding-left: $left-offset;
+}

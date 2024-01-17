@@ -1,0 +1,94 @@
+$horizontal-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+$left-offset: rem(300);
+$mobile-header-height: rem(80);
+//Accents colors;
+$accent-primary: #183041;
+$accent-primary-dark: #0D64CC;
+
+//Labels colors
+$label-primary: #2d2d2d;
+$label-secondary: #8d959d;
+$label-tertiary: #cfd5da;
+$label-white: #f3f0e9;
+
+//gray scale colors
+$gray-scale-50: #080809;
+$gray-scale-100: #1a1c1f;
+$gray-scale-200: #8d959d;
+$gray-scale-300: #cbd1d7;
+$gray-scale-400: #e2e6eb;
+$gray-scale-500: #f3f4f5;
+$gray-scale-600: #fff;
+
+// oher
+$red: #a92921;
+$old: #f8f6f0;
+
+$colors: (
+  'accent-primary': $accent-primary,
+  'label-primary': $label-primary,
+  'label-secondary': $label-secondary,
+  'label-tertiary': $label-tertiary,
+  'label-white': $label-white,
+  'gray-scale-50': $gray-scale-50,
+  'gray-scale-100': $gray-scale-100,
+  'gray-scale-200': $gray-scale-200,
+  'gray-scale-300': $gray-scale-300,
+  'gray-scale-400': $gray-scale-400,
+  'gray-scale-500': $gray-scale-500,
+  'gray-scale-600': $gray-scale-600,
+  'old': $old,
+  'red': $red,
+);
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.125,
+  // 2px
+  2: $spacer * 0.25,
+  // 4px
+  3: $spacer * 0.375,
+  // 6px
+  4: $spacer * 0.5,
+  // 8px
+  5: $spacer * 0.625,
+  // 10px
+  6: $spacer * 0.75,
+  // 12px
+  7: $spacer * 0.875,
+  // 14px
+  8: $spacer,
+  // 16px
+  10: $spacer * 1.25,
+  // 20px
+  12: $spacer * 1.5,
+  // 24px
+  14: $spacer * 1.75,
+  // 28px
+  16: $spacer * 2,
+  // 32px
+  18: $spacer * 2.25,
+  // 36px
+  20: $spacer * 2.5,
+  // 40px
+  22: $spacer * 2.75,
+  // 44px
+  24: $spacer * 3,
+  // 48px
+  28: $spacer * 3.5,
+  // 48px
+  32: $spacer * 4,
+  // 64px
+  36: $spacer * 4.5,
+  // 72px
+  40: $spacer * 5,
+  // 80px
+  48: $spacer * 6,
+  // 96px
+);
+
+//packages
+$package-blue: #3289e0;
+$package-green: #70bb97;
+$package-red: #c9838a;
