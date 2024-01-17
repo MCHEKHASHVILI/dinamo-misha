@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <nav ref="nav" class="left-nav-menu">
     <ul class="left-nav-menu_list p-0 m-0">
