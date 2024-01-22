@@ -1,6 +1,8 @@
 export default {
   pages: {
     team: 'გუნდი',
+    'team/youth': 'ახალგაზრდული',
+    'team/management': 'მენეჯმენტი',
     academy: 'აკადემია',
     news: 'სიახლეები',
     history: 'ისტორია',

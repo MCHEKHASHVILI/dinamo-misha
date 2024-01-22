@@ -1,10 +1,15 @@
 export default {
   pages: {
     team: 'Team',
+    'team/youth': 'Youth',
+    'team/management': 'Management',
     academy: 'Academy',
     news: 'News',
     history: 'History',
     stats: 'Stats',
+    // children: {
+    //   main: "",
+    // },
   },
   games: {
     goals: 'goals',

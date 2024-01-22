@@ -16,7 +16,7 @@
         </div>
       </div>
     </LocomotiveScroll>
-    <NextPage :data="{ name: 'team/youth', title: $t('pages.team/youth') }" />
+    <NextPage :data="{ name: 'team/management', title: $t('pages.team/management') }" />
   </section>
 </template>
 
