@@ -77,6 +77,7 @@ export default {
     join_our_academy: 'შეუერთდი აკადემიას',
     success_msg_title: 'მადლობა',
     success_msg_desc: 'ჩვენი გუნდი დაგიკავშირდება უახლოეს პერიოდში',
+    branch: 'აირჩიე ფილიალი',
     tell_full_name: 'გვითხარი სრული სახელი',
     tell_number: 'ტელეფონის ნომერი',
     error_message: 'დაფიქსირდა შეცდომა, გთხოვთ სცადოთ ახლიდან',

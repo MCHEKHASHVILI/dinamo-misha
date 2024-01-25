@@ -8,7 +8,7 @@
         </div>
         <div v-if="!data.game_data.finished && data.game_data.live_url" class="home-monitor__live bg-color-red font-color-label-white font-regular">LIVE</div>
         <div v-else class="d-flex flex-column">
-          <div v-if="data.game_data.dinamo_goals" class="home-monitor__stats font-color-label-primary font-regular mb-4">{{ data.game_data.dinamo_goals }} - {{ data.game_data.second_team_goals }}</div>
+          <div v-if="data.game_data.dinamo_goals" class="home-monitor__stats font-color-label-primary font-regular mb-4">{{ data.game_data.second_team_goals }} - {{ data.game_data.dinamo_goals }}</div>
           <div v-if="data.game_data.match_date" class="home-monitor__date font-color-label-primary font-regular">{{ data.game_data.match_date | moment('DD.MM.YY') }}</div>
         </div>
         <div class="home-monitor__team d-flex flex-column justify-content-between h-100 align-items-center flex-1">

@@ -80,6 +80,7 @@ export default {
     join_our_academy: 'Join our academy',
     success_msg_title: 'Thank you',
     success_msg_desc: 'Our team will contact you in 3-5 business days',
+    branch: 'Choose a Branch',
     tell_full_name: 'Tell us your full name',
     tell_number: 'Your number"',
     error_message: 'Server error please try it again',

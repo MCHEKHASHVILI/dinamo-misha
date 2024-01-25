@@ -90,11 +90,14 @@ import AcademyPackage from '../../components/academy/AcademyPackage';
 import TextSection from '../../components/academy/TextSection';
 import AcademyQuestions from '../../components/academy/AcademyQuestions';
 import metaTagsMixin from '../../mixins/meta-tags-mixin';
+import BaseButtonGrey from '../../components/common/BaseButtonGrey.vue';
+import BaseModal from '../../components/common/BaseModal.vue';
+import NextPage from '../../components/common/NextPage.vue';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'Academy',
-  components: { Youtube, AcademyQuestions, TextSection, VerticalTextSection, AcademyPackage },
+  components: { Youtube, AcademyQuestions, TextSection, VerticalTextSection, AcademyPackage, BaseButtonGrey, NextPage, BaseModal },
   layout: 'horizontal-pages',
   mixins: [metaTagsMixin],
   async asyncData({ $axios }) {

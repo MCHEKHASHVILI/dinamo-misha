@@ -32,6 +32,17 @@
         </div>
 
         <div>
+          <ValidationProvider v-slot="{ errors }" rules="required" name="branch">
+            <div class="academy-form-modal__input-wrapper w-100 mb-28">
+              <select v-model="form.branch" type="text" :placeholder="$t('academy.branch')" class="w-100" :class="{ error: errors.length > 0 }">
+                <option value="null" selected disabled>{{ $t('academy.branch') }}</option>
+                <option value="1">Main Branch</option>
+                <option value="2">Second Branch</option>
+              </select>
+              <span v-if="errors.length > 0" class="academy-form-modal__input-error font-regular">{{ errors[0] }}</span>
+            </div>
+          </ValidationProvider>
+
           <ValidationProvider v-slot="{ errors }" rules="required" name="name">
             <div class="academy-form-modal__input-wrapper w-100 mb-28">
               <input v-model="form.name" type="text" :placeholder="$t('academy.tell_full_name')" class="w-100" :class="{ error: errors.length > 0 }" />
@@ -60,12 +71,13 @@
 
 <script>
 import { ValidationProvider, ValidationObserver, localize } from 'vee-validate';
-
+import BaseButton from '../../common/BaseButton.vue';
 export default {
   name: 'AcademyFormModal',
   components: {
     ValidationProvider,
     ValidationObserver,
+    BaseButton,
   },
   props: {
     packages: {
@@ -154,6 +166,18 @@ export default {
 
       &.error {
         border-bottom: 1px solid $danger;
+      }
+    }
+
+    select {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid $gray-scale-400;
+      padding-bottom: rem(24);
+      font-size: rem(18);
+      color: $label-primary;
+      &::placeholder {
+        color: $label-secondary;
       }
     }
   }
