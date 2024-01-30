@@ -81,6 +81,10 @@ export default {
     tell_full_name: 'გვითხარი სრული სახელი',
     tell_number: 'ტელეფონის ნომერი',
     error_message: 'დაფიქსირდა შეცდომა, გთხოვთ სცადოთ ახლიდან',
+    branches: {
+      saburtalo: 'საბურთალო',
+      vake: 'ვაკე',
+    },
   },
   news: {
     search: 'ძებნა',

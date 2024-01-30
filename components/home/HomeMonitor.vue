@@ -1,19 +1,19 @@
 <template>
   <div class="monitor-wrapper">
     <div class="monitor-content-wrapper scalable">
-      <a id="home-monitor" class="home-monitor cursor-pointer text-decoration-none d-flex align-items-center justify-content-between text-center" :class="{ 'flex-row-reverse': data.game_data.guest_match }" @click="monitorClickHandler">
+      <a id="home-monitor" class="home-monitor cursor-pointer text-decoration-none d-flex align-items-center justify-content-between text-center" @click="monitorClickHandler">
         <div class="home-monitor__team d-flex flex-column justify-content-between h-100 align-items-center flex-1">
-          <img src="/logo.png" alt="" class="home-monitor__img" />
-          <h3 class="home-monitor__title font-semi-bold font-color-label-primary">{{ $t('common.dinamo_tbilisi') }}</h3>
+          <img :src="hostLogo" alt="" class="home-monitor__img" />
+          <h3 class="home-monitor__title font-semi-bold font-color-label-primary">{{ hostTeamName }}</h3>
         </div>
         <div v-if="!data.game_data.finished && data.game_data.live_url" class="home-monitor__live bg-color-red font-color-label-white font-regular">LIVE</div>
         <div v-else class="d-flex flex-column">
-          <div v-if="data.game_data.dinamo_goals" class="home-monitor__stats font-color-label-primary font-regular mb-4">{{ data.game_data.second_team_goals }} - {{ data.game_data.dinamo_goals }}</div>
+          <div v-if="data.game_data.dinamo_goals" class="home-monitor__stats font-color-label-primary font-regular mb-4">{{ hostGoals }} - {{ guestGoals }}</div>
           <div v-if="data.game_data.match_date" class="home-monitor__date font-color-label-primary font-regular">{{ data.game_data.match_date | moment('DD.MM.YY') }}</div>
         </div>
         <div class="home-monitor__team d-flex flex-column justify-content-between h-100 align-items-center flex-1">
-          <img :src="data.game_data.second_team.logo" alt="" class="home-monitor__img" />
-          <h3 class="home-monitor__title font-semi-bold font-color-label-primary">{{ data.game_data.second_team.title }}</h3>
+          <img :src="guestLogo" alt="" class="home-monitor__img" />
+          <h3 class="home-monitor__title font-semi-bold font-color-label-primary">{{ guestTeamName }}</h3>
         </div>
       </a>
     </div>
@@ -27,6 +27,26 @@ export default {
     data: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    hostTeamName() {
+      return this.data.game_data.guest_match ? this.data.game_data.second_team.title : this.data.og_title;
+    },
+    hostLogo() {
+      return this.data.game_data.guest_match ? this.data.game_data.second_team.logo : '/logo.png';
+    },
+    hostGoals() {
+      return this.data.game_data.guest_match ? this.data.game_data.second_team_goals : this.data.game_data.dinamo_goals;
+    },
+    guestTeamName() {
+      return !this.data.game_data.guest_match ? this.data.game_data.second_team.title : this.data.og_title;
+    },
+    guestLogo() {
+      return !this.data.game_data.guest_match ? this.data.game_data.second_team.logo : '/logo.png';
+    },
+    guestGoals() {
+      return !this.data.game_data.guest_match ? this.data.game_data.second_team_goals : this.data.game_data.dinamo_goals;
     },
   },
   methods: {

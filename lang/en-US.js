@@ -84,6 +84,10 @@ export default {
     tell_full_name: 'Tell us your full name',
     tell_number: 'Your number"',
     error_message: 'Server error please try it again',
+    branches: {
+      saburtalo: 'Saburtalo',
+      vake: 'Vake',
+    },
   },
   news: {
     search: 'Search',

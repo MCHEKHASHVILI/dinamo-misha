@@ -23,7 +23,10 @@
                   <h4 class="font-regular font-color-label-white font-size-14 line-height-1-5">{{ item.title }}</h4>
                 </div>
                 <div class="academy-form-modal__price bg-color-label-white py-4 px-5 border-radius-l">
-                  <p class="font-regular font-size-14 d-flex align-items-end">{{ item.price }} <SvgIcon name="lari" class="academy-form-modal__currency-icon" /></p>
+                  <p class="font-regular font-size-14 d-flex align-items-end">
+                    {{ item.price }}
+                    <SvgIcon name="lari" class="academy-form-modal__currency-icon" />
+                  </p>
                 </div>
               </div>
               <div class="academy-form-modal__radio-icon"></div>
@@ -35,9 +38,8 @@
           <ValidationProvider v-slot="{ errors }" rules="required" name="branch">
             <div class="academy-form-modal__input-wrapper w-100 mb-28">
               <select v-model="form.branch" class="w-100" :class="{ error: errors.length > 0 }">
-                <option :value="null" disabled selected>{{ $t('academy.branch') }}</option>
-                <option :value="1">Main Branch</option>
-                <option :value="2">Second Branch</option>
+                <option value="" disabled selected>{{ $t('academy.branch') }}</option>
+                <option v-for="(branch, index) in branches" :key="index" :value="$t(`academy.branches.${branch}`, 'ka-GE')" v-text="$t(`academy.branches.${branch}`)" />
               </select>
               <span v-if="errors.length > 0" class="academy-form-modal__input-error font-regular">{{ errors[0] }}</span>
             </div>
@@ -87,6 +89,7 @@ export default {
   },
   data() {
     return {
+      branches: ['saburtalo', 'vake'],
       form: { name: null, branch: null, number: null, package: null },
       isLoading: false,
       success: false,
@@ -160,6 +163,7 @@ export default {
       padding-bottom: rem(24);
       font-size: rem(18);
       color: $label-primary;
+
       &::placeholder {
         color: $label-secondary;
       }
@@ -179,12 +183,11 @@ export default {
       padding-bottom: rem(24);
       font-size: rem(18);
       color: $label-primary;
-      [disabled] {
-        color: gray;
+
+      &__option[value=''] {
+        color: $label-secondary;
       }
-      &__option {
-        color: $label-primary;
-      }
+
       // &::moz-color {
       //   color: $label-primary;
       // }
@@ -271,6 +274,7 @@ export default {
 
   &__price {
     color: $package-blue;
+
     svg {
       fill: $package-blue;
     }
@@ -286,6 +290,7 @@ export default {
         &::after {
           background: $package-green;
         }
+
         .academy-form-modal__package-content {
           background-color: $package-green;
         }
@@ -293,6 +298,7 @@ export default {
 
       .academy-form-modal__price {
         color: $package-green;
+
         svg {
           fill: $package-green;
         }
@@ -309,8 +315,10 @@ export default {
           background-color: $package-red;
         }
       }
+
       .academy-form-modal__price {
         color: $package-red;
+
         svg {
           fill: $package-red;
         }
