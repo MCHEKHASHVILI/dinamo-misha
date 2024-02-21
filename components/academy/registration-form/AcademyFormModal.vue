@@ -10,13 +10,12 @@
       </div>
       <div v-else>
         <h2 class="font-regular font-color-label-primary font-size-24 mb-18">{{ $t('academy.join_our_academy') }}</h2>
-
         <div class="d-flex flex-column flex-md-row flex-md-wrap academy-form-modal__package-wrapper mb-28 overflow-auto">
           <div v-for="item in packages" :key="item.type" class="academy-form-modal__package flex-1 w-100">
             <input :id="item.type" v-model="form.package" :value="item" type="radio" name="package" class="academy-form-modal__checkmark hidden" />
             <label :for="item.type" class="cursor-pointer position-relative border-radius-xl d-flex flex-column">
-              <div class="academy-form-modal__package-content z-index-1 relative d-flex flex-column justify-content-between align-items-center border-radius-xl p-12 h-100">
-                <div class="mb-16 d-flex flex-column align-items-center">
+              <div class="academy-form-modal__package-content z-index-1 relative d-flex flex-column justify-content-between align-items-center border-radius-xl px-6 py-12 h-100">
+                <div class="mb-16 d-flex flex-column align-items-center text-center">
                   <div class="academy-form-modal__package-icon-wrapper mb-4 border-radius-50 d-flex align-items-center justify-content-center">
                     <SvgIcon :name="`academy-package-${item.type}`" class="academy-form-modal__icon svg-fill-label-white" />
                   </div>
@@ -33,7 +32,6 @@
             </label>
           </div>
         </div>
-
         <div>
           <ValidationProvider v-slot="{ errors }" rules="required" name="branch">
             <div class="academy-form-modal__input-wrapper w-100 mb-28">
@@ -44,14 +42,12 @@
               <span v-if="errors.length > 0" class="academy-form-modal__input-error font-regular">{{ errors[0] }}</span>
             </div>
           </ValidationProvider>
-
           <ValidationProvider v-slot="{ errors }" rules="required" name="name">
             <div class="academy-form-modal__input-wrapper w-100 mb-28">
               <input v-model="form.name" type="text" :placeholder="$t('academy.tell_full_name')" class="w-100" :class="{ error: errors.length > 0 }" />
               <span v-if="errors.length > 0" class="academy-form-modal__input-error font-regular">{{ errors[0] }}</span>
             </div>
           </ValidationProvider>
-
           <ValidationProvider v-slot="{ errors }" rules="required" name="number">
             <div class="academy-form-modal__input-wrapper w-100 mb-28">
               <input v-model="form.number" type="tel" :placeholder="$t('academy.tell_number')" class="w-100" :class="{ error: errors.length > 0 }" />
@@ -327,7 +323,7 @@ export default {
   }
 
   label {
-    margin: rem(16);
+    margin: rem(8);
 
     &::after,
     &::before {
