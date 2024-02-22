@@ -1,6 +1,7 @@
 export default {
   pages: {
     team: 'Team',
+    'team/main': 'Main',
     'team/youth': 'Youth',
     'team/management': 'Management',
     academy: 'Academy',
