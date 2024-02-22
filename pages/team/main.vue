@@ -36,7 +36,7 @@ export default {
   mixins: [metaTagsMixin],
   async asyncData({ $axios }) {
     const data = await $axios.$get('/team');
-    const types = ['main', 'youth', 'management'];
+    const types = ['management', 'main', 'youth'];
     const titles = {
       team: { title: 'გუნდი', text: 'lorem ...' },
       youth: { title: 'ახალგაზრდული', text: 'lorem ...' },
