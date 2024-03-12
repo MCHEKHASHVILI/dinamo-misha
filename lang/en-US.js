@@ -1,8 +1,8 @@
 export default {
   pages: {
     team: 'Team',
-    'team/main': 'Main',
-    'team/youth': 'Youth',
+    'team/general': 'Main',
+    'team/young': 'Youth',
     'team/management': 'Management',
     academy: 'Academy',
     news: 'News',

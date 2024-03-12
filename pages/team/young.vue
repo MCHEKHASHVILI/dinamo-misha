@@ -3,20 +3,16 @@
     <LocomotiveScroll ref="scroller" :getted-options="scrollOptions">
       <div class="team d-md-flex h-100 next-page-offset">
         <div class="gallery d-md-flex h-100 py-32" data-scroll-section data-scroll-trigger>
-          <div v-for="(type, index) in types.filter((t) => t === getTypeFromRouteName())" :key="index" class="gallery d-md-flex h-100 py-32">
+          <div v-for="group in data[getTypeFromRouteName()]" :key="group.index" class="gallery d-md-flex h-100 py-32">
             <div class="gallery__text">
-              <TextSection :text="team.titles[type]?.text" :title="team.titles[type]?.title" />
+              <TextSection :text="group.text" :title="group.title" />
             </div>
-            <TeamListItem v-for="item in chunkArray(players, 2, type)" :key="item[0].id" :data="item" />
+            <TeamListItem v-for="item in chunkArray(group.players, 2)" :key="item[0].id" :data="item" />
           </div>
-          <!-- // <div class="gallery__text">
-          //   <TextSection :text="team.staff_text" :title="team.staff_title" />
-          // </div>
-          // <TeamListItem v-for="item in chunkArray(players, 2, true)" :key="item[0].id" :data="item" /> -->
         </div>
       </div>
     </LocomotiveScroll>
-    <NextPage :data="{ name: 'team/youth', title: $t('pages.team/youth') }" />
+    <NextPage :data="{ name: 'team/management', title: $t('pages.team/management') }" />
   </section>
 </template>
 
@@ -35,21 +31,14 @@ export default {
   layout: 'horizontal-pages',
   mixins: [metaTagsMixin],
   async asyncData({ $axios }) {
-    const data = await $axios.$get('/team');
-    const types = ['management', 'main', 'youth'];
-    const titles = {
-      team: { title: 'გუნდი', text: 'lorem ...' },
-      youth: { title: 'ახალგაზრდული', text: 'lorem ...' },
-      management: { title: 'მენეჯმენტი', text: 'lorem ...' },
-    };
-    data.players.map((player) => Object.assign(player, { type: types[Math.floor(Math.random() * types.length)] }));
-    Object.assign(data.team, { titles: { ...titles } });
-    return { team: data.team, metaTags: data.meta_tags, players: data.players, types };
+    const data = await $axios.$get('/teams');
+    return { data: data.data, team: data.team, metaTags: data.meta_tags, players: data.players };
   },
   data() {
     return {
       team: {},
       players: [],
+      data: [],
       scrollOptions: {
         smooth: true,
         direction: 'horizontal',
@@ -75,7 +64,7 @@ export default {
     chunkArray(array, chunkSize, type = false) {
       const newArray = [];
       // const mappedArray = array.filter((item) => isStaff === item.is_staff);
-      const mappedArray = array.filter((item) => item.type === type);
+      const mappedArray = type ? array.filter((item) => item.type === type) : array;
       for (let i = 0; i < mappedArray.length; i += chunkSize) {
         const item = mappedArray.slice(i, chunkSize + i);
 
