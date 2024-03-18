@@ -87,6 +87,11 @@ export default {
       }
     },
   },
+  mounted() {
+    if (this.$route.name.includes('team')) {
+      this.$data.expanded = true;
+    }
+  },
   methods: {
     subIsActive(input) {
       const paths = Array.isArray(input) ? input : [input];
@@ -94,13 +99,10 @@ export default {
         return this.$route.path.indexOf('/' + path) === 0; // current path starts with this path string
       });
     },
-    iconName: (iconName) => iconName.includes('/') ? iconName.replace('/', '-') + '-icon' : iconName + '-icon',
+    iconName: (iconName) => (iconName.includes('/') ? iconName.replace('/', '-') + '-icon' : iconName + '-icon'),
     toggleDropdown() {
       this.expanded = !this.expanded;
     },
-    // .split('-')
-    // .map((i) => i.charAt(0).toUpperCase() + i.slice(1).toLowerCase())
-    // .join() + 'Icon',
     activeMenuDropDown(name) {
       return !!this.$route.name.includes(name);
     },

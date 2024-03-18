@@ -6,7 +6,7 @@
       <!--      <path id="room 3" opacity="0.01" d="M1312 589L1488.5 506V240L1312 322.5V589Z" fill="#F5BCC3" />-->
       <!--      <path id="room 4" opacity="0.01" d="M1932 369V637L1759.5 523.5V259.5L1932 369Z" fill="#F5BCC3" />-->
 
-      <path id="room-1" opacity="0.01" d="M723 865.5L899.5 782.5V516.5L723 599V865.5Z" fill="red" class="cursor-pointer" @mouseover="onMouseOver(1)" @mouseleave="onMouseLeave(1)" @click="pushRoute('team')" />
+      <path id="room-1" opacity="0.01" d="M723 865.5L899.5 782.5V516.5L723 599V865.5Z" fill="red" class="cursor-pointer" @mouseover="onMouseOver(1)" @mouseleave="onMouseLeave(1)" @click="pushRoute('team/general')" />
       <path id="room-2" opacity="0.01" d="M1024 724L1200.5 641V375L1024 457.5V724Z" fill="#F5BCC3" class="cursor-pointer" @mouseover="onMouseOver(2)" @mouseleave="onMouseLeave(2)" @click="pushRoute('academy')" />
       <path id="room-3" opacity="0.01" d="M1312 589L1488.5 506V240L1312 322.5V589Z" fill="#F5BCC3" class="cursor-pointer" @mouseover="onMouseOver(3)" @mouseleave="onMouseLeave(3)" @click="pushRoute('news')" />
       <path id="room-4" opacity="0.01" d="M1932 369V637L1759.5 523.5V259.5L1932 369Z" fill="#F5BCC3" class="cursor-pointer" @mouseover="onMouseOver(4)" @mouseleave="onMouseLeave(4)" @click="pushRoute('history')" />

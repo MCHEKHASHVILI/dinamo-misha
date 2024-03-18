@@ -96,7 +96,7 @@ import TeamIcon from '../components/left-navigation-menu/icons/TeamIcon';
 
 export default {
   name: 'Home',
-  components: { HomeFooter, HomeHeader, Lottie, TeamIcon, HistoryIcon, AcademyIcon, StatsIcon, NewsIcon, SoundButton },
+  components: { HomeFooter, HomeHeader, Lottie, TeamGeneralIcon: TeamIcon, HistoryIcon, AcademyIcon, StatsIcon, NewsIcon, SoundButton },
   async asyncData({ $axios, $context }) {
     const data = await $axios
       .$get('/frontpage')
@@ -126,7 +126,7 @@ export default {
       animationSpeed: 1,
       anim: null,
       horizontalPageRoutes: [
-        { name: 'team', active: false },
+        { name: 'team/general', active: false },
         { name: 'academy', active: false },
         { name: 'news', active: false },
         { name: 'stats', active: false },
