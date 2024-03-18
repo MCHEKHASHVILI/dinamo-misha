@@ -28,6 +28,10 @@ export default {
         name: 'facebook-domain-verification',
         content: 'q1uxoxc7y2bqd8cqtyke9n346p3588',
       },
+      {
+        'http-equiv': 'Content-Security-Policy',
+        content: 'frame-src *',
+      },
     ],
     link: [
       // { rel: 'icon', type: 'image/x-icon', href: '/favicons/favicon.ico' },
