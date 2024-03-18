@@ -41,20 +41,6 @@
             </span>
           </ClientOnly>
         </NuxtLink>
-        <!-- <ul v-if="route.hasOwnProperty('children') && route.children.length" v-show="activeMenuDropDown(route.name)">
-          <li v-for="child in route.children" :key="child.index">
-            <NuxtLink exact :to="localePath({ name: child.name })" class="left-nav-menu__item-link d-flex align-items-center font-size-15 font-size-14-md font-semi-bold text-capitalize text-decoration-none color-label-secondary">
-              <ClientOnly>
-                <vue-ellipse-progress :progress="isFinite(progress) ? progress : 0" animation="default 0 0" :size="51" color="#183041" color-fill="transparent" empty-color="transparent" empty-color-fill="transparent" :thickness="2" class="d-flex">
-                  <component :is="iconName(child.name)" class="left-nav-menu__svg-icon"></component>
-                </vue-ellipse-progress>
-                <span class="left-nav-menu__item-text">
-                  {{ $t(`pages.${child.name}`) }}
-                </span>
-              </ClientOnly>
-            </NuxtLink>
-          </li>
-        </ul> -->
       </li>
     </ul>
   </nav>
@@ -80,14 +66,6 @@ export default {
     return {
       expanded: false,
       horizontalPageRoutes: [
-        // {
-        //   name: 'team',
-        //   active: false,
-        //   children: [
-        //     { name: 'team/youth', active: false },
-        //     { name: 'team/management', active: false },
-        //   ],
-        // },
         { name: 'academy', active: false },
         { name: 'news', active: false },
         { name: 'stats', active: false },
@@ -116,7 +94,7 @@ export default {
         return this.$route.path.indexOf('/' + path) === 0; // current path starts with this path string
       });
     },
-    iconName: (iconName) => (iconName.includes('/') ? iconName?.replace('/', '-') + '-icon' : iconName + '-icon'),
+    iconName: (iconName) => iconName.includes('/') ? iconName.replace('/', '-') + '-icon' : iconName + '-icon',
     toggleDropdown() {
       this.expanded = !this.expanded;
     },
