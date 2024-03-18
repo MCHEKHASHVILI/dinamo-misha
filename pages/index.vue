@@ -170,9 +170,7 @@ export default {
         return this.$route.path.indexOf(path) === 0; // current path starts with this path string
       });
     },
-    iconName(iconName) {
-      return iconName.charAt(0).toUpperCase() + iconName.slice(1) + 'Icon';
-    },
+    iconName: (iconName) => (iconName.includes('/') ? iconName.replace('/', '-') + '-icon' : iconName + '-icon'),
   },
   head() {
     return {
