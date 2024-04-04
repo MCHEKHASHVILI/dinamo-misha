@@ -20,7 +20,7 @@
           <div class="d-flex flex-column">
             <TextSection :title="academy.title" :text="academy.description"></TextSection>
             <a href="#" target="_blank" class="text-decoration-none" @click.prevent="showAcademyFormModal = true">
-              <BaseButtonGrey class="w-auto d-flex px-12 py-8 ml-12 ml-md-0 font-semi-bold text-section-button justify-content-between d-flex align-items-center">
+              <BaseButtonGrey class="w-auto d-flex px-12 py-8 ml-12 ml-md-0 font-semi-bold text-section-button justify-content-between align-items-center">
                 <span class="base-button__text font-color-accent-primary">{{ $t('academy.join_academy') }}</span>
                 <SvgIcon name="right-arrow" class="base-button__icon ml-8" />
               </BaseButtonGrey>
@@ -85,16 +85,18 @@
 import { Youtube } from 'vue-youtube';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import VerticalTextSection from '../../components/academy/VerticalTextSection.vue';
-import AcademyPackage from '../../components/academy/AcademyPackage';
-import TextSection from '../../components/academy/TextSection';
-import AcademyQuestions from '../../components/academy/AcademyQuestions';
+// import VerticalTextSection from '../../components/academy/VerticalTextSection.vue';
+// import AcademyPackage from '../../components/academy/AcademyPackage';
+// import TextSection from '../../components/academy/TextSection';
+// import BaseButtonGrey from '../../components/common/BaseButtonGrey';
+// import NextPage from '../../components/common/NextPage';
+// import AcademyQuestions from '../../components/academy/AcademyQuestions';
 import metaTagsMixin from '../../mixins/meta-tags-mixin';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'Academy',
-  components: { Youtube, AcademyQuestions, TextSection, VerticalTextSection, AcademyPackage },
+  components: { Youtube },
   layout: 'horizontal-pages',
   mixins: [metaTagsMixin],
   async asyncData({ $axios }) {
@@ -486,7 +488,8 @@ export default {
       backface-visibility: hidden;
       transform: scale(0.5);
       vertical-align: top;
-      pointer-events: none; /* demo purpose*/
+      pointer-events: none;
+      /* demo purpose*/
     }
 
     &__video-play-icon {
@@ -495,6 +498,7 @@ export default {
       display: flex;
     }
   }
+
   &__image-1 {
     width: rem(700);
     height: rem(715);
@@ -508,6 +512,7 @@ export default {
       border-radius: 0 !important;
     }
   }
+
   &__images {
     padding: 24.4vh 0;
 
@@ -619,12 +624,15 @@ export default {
       }
     }
   }
+
   .horizontal {
     padding-left: $left-offset;
     display: flex;
+
     @include media-breakpoint-up(md) {
       height: 100vh;
     }
+
     @include media-breakpoint-down(md) {
       padding-bottom: rem(236);
     }
@@ -651,6 +659,7 @@ export default {
         font-weight: 700;
       }
     }
+
     &__icon {
       fill: $accent-primary;
       width: rem(15);
