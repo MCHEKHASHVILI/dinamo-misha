@@ -16,7 +16,7 @@
       }"
     >
       <div class="horizontal d-flex" data-scroll-container>
-        <div data-scroll-section class="academy__section d-flex align-items-center" style="min-width: 1250px">
+        <div data-scroll-section class="academy__section d-flex align-items-center">
           <div class="d-flex flex-column">
             <TextSection :title="academy.title" :text="academy.description"></TextSection>
             <a href="#" target="_blank" class="text-decoration-none" @click.prevent="showAcademyFormModal = true">
@@ -160,6 +160,9 @@ export default {
       }
     },
     enableHorizontalScroll() {
+      // ['vertical', 'vertical-2'].forEach((c) => {
+      // document.querySelector(`.${c}`).classList.remove(c);
+      // });
       document.querySelector('.vertical-2').classList.remove('vertical');
       document.querySelector('.vertical-2').classList.remove('vertical-2');
       const locomotive = this.$refs.scroller.locomotive;

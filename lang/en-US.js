@@ -76,7 +76,7 @@ export default {
   },
   academy: {
     academy: 'Academy',
-    join_academy: 'Join Academy',
+    join_academy: 'Join',
     dinamo_academy: 'Dinamo Academy',
     join_our_academy: 'Join our academy',
     success_msg_title: 'Thank you',

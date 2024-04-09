@@ -10,8 +10,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-img {
+<style lang="scss" scopped>
+.team-icon img {
   display: block;
   max-width: 100%;
   height: auto;
