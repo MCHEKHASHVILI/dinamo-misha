@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss">
 .has-scroll-smooth body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .has-scroll-smooth .js-locomotive {

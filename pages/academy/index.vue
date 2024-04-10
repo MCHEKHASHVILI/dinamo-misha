@@ -105,6 +105,7 @@ export default {
   },
   data() {
     return {
+      test: null,
       showModal: false,
       playerVars: {
         autoplay: 1,
@@ -160,11 +161,9 @@ export default {
       }
     },
     enableHorizontalScroll() {
-      // ['vertical', 'vertical-2'].forEach((c) => {
-      // document.querySelector(`.${c}`).classList.remove(c);
-      // });
-      document.querySelector('.vertical-2').classList.remove('vertical');
-      document.querySelector('.vertical-2').classList.remove('vertical-2');
+      ['vertical', 'vertical-2'].forEach((c) => {
+        document.querySelector(`.${c}`).classList.remove(c);
+      });
       const locomotive = this.$refs.scroller.locomotive;
       locomotive.start();
     },
@@ -197,7 +196,8 @@ export default {
         const top1 = academyPackages[0].style.top ? parseInt(academyPackages[0].style.top.replace('px', '')) : 0;
         const top2 = academyPackages[1].style.top ? parseInt(academyPackages[1].style.top.replace('px', '')) : 0;
         const top3 = academyPackages[2].style.top ? parseInt(academyPackages[2].style.top.replace('px', '')) : 0;
-        if (top1 + top2 + top3 > -10 && top1 + top2 + top3 < 10) {
+        const top4 = academyPackages[3].style.top ? parseInt(academyPackages[3].style.top.replace('px', '')) : 0;
+        if (top1 + top2 + top3 + top4 > -10 && top1 + top2 + top3 + top4 < 10) {
           ref.enableHorizontalScroll();
           return;
         }
@@ -206,10 +206,11 @@ export default {
       // scroll from anywhere using wheel event
       // scrollElement.scrollTop -= deltaY;
       const speedMultiplier = 1 / 2;
-      if (academyPackages.length === 3) {
+      if (academyPackages.length === 4) {
         const offset = academyPackages[0].offsetTop;
         const secondOffset = offset + 15;
         const thirdOffset = secondOffset + 15;
+        const fourthOffset = thirdOffset + 15;
         if (deltaY < 0) {
           if (academyPackages[1].offsetTop > secondOffset) {
             const top = academyPackages[1].style.top;
@@ -236,13 +237,41 @@ export default {
               diff -= 0.1;
             }
             academyPackages[2].style.top = parseFloat(top ? top.replace('px', '') : 0) + diff * speedMultiplier + 'px';
+          }
+          if (academyPackages[3].offsetTop > fourthOffset) {
+            const top = academyPackages[3].style.top;
+            let diff = 0;
+            for (let i = -0.1; i > deltaY; i -= 0.1) {
+              if (academyPackages[3].offsetTop + diff > fourthOffset) {
+                diff = i;
+              }
+            }
+            if (academyPackages[3].offsetTop + diff > fourthOffset) {
+              diff -= 0.1;
+            }
+            academyPackages[3].style.top = parseFloat(top ? top.replace('px', '') : 0) + diff * speedMultiplier + 'px';
           } else if (deltaY < 0) {
             ref.enableHorizontalScroll();
           }
         } else {
+          const top3 = academyPackages[3].style.top;
+          const top3Int = top3 ? parseInt(top3.replace('px', '')) : 0;
+          if (top3Int < 0) {
+            let diff = 0;
+            for (let i = 0.1; i < deltaY; i += 0.1) {
+              if (top3Int + diff < 0) {
+                diff = i;
+              }
+            }
+            if (top3Int + diff < 0) {
+              diff += 0.1;
+            }
+            academyPackages[3].style.top = top3Int + diff * speedMultiplier + 'px';
+          }
+
           const top2 = academyPackages[2].style.top;
           const top2Int = top2 ? parseInt(top2.replace('px', '')) : 0;
-          if (top2Int < 0) {
+          if (top2Int < 0 && top3Int - top2Int > 0) {
             let diff = 0;
             for (let i = 0.1; i < deltaY; i += 0.1) {
               if (top2Int + diff < 0) {
@@ -254,6 +283,7 @@ export default {
             }
             academyPackages[2].style.top = top2Int + diff * speedMultiplier + 'px';
           }
+
           const top1 = academyPackages[1].style.top;
           const top1Int = top1 ? parseInt(top1.replace('px', '')) : 0;
           if (top1Int < 0 && top2Int - top1Int > 0) {
@@ -269,6 +299,13 @@ export default {
             academyPackages[1].style.top = top1Int + diff * speedMultiplier + 'px';
           }
         }
+      } else {
+        // const tops = Array.from(academyPackages).reduce((prev, curr) => [curr.style.top ? parseInt(curr.style.top.replace('px', '')) : 0, ...prev], []);
+        // const trim = 10;
+        // if (Array.sum(tops) > -trim && Array.sum(tops) < trim) {
+        //   ref.enableHorizontalScroll();
+        //   return;
+        // }
       }
     },
     wheelHandler(e) {

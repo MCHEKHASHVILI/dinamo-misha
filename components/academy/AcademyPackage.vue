@@ -53,10 +53,10 @@ export default {
   }
 
   &:first-child {
-    width: rem(570);
+    width: rem(530);
     top: 0;
-    margin-left: rem(40);
-    margin-right: rem(40);
+    margin-left: rem(60);
+    margin-right: rem(60);
 
     .academy-package__header,
     .academy-package__body {
@@ -65,10 +65,10 @@ export default {
   }
 
   &:nth-child(2) {
-    width: rem(610);
+    width: rem(570);
     top: 0;
-    margin-left: rem(20);
-    margin-right: rem(20);
+    margin-left: rem(40);
+    margin-right: rem(40);
 
     .academy-package__header,
     .academy-package__body {
@@ -78,11 +78,22 @@ export default {
 
   &:nth-child(3) {
     top: 0;
-    width: rem(650);
+    width: rem(610);
+    margin-left: rem(20);
+    margin-right: rem(20);
 
     .academy-package__header,
     .academy-package__body {
       background-color: $package-red;
+    }
+  }
+
+  &:nth-child(4) {
+    top: 0;
+    width: rem(650);
+    .academy-package__header,
+    .academy-package__body {
+      background-color: $package-black;
     }
   }
 
